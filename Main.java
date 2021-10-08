@@ -1,18 +1,35 @@
-package Example;
-
+package Idesign5;
+import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-EX3 emp=new EX3();             //emp is called as REFERENCE VARIABLE
-EX3 emp1=new EX3();             ///we can created multiple VARIABLE FOR THE SAME CALSS
-emp1.id=678;
-emp1.name="sakshi";
-System.out.println(emp.id);
-System.out.println(emp.name);
-System.out.println(emp1.name);
-System.out.println(emp1.id);
-	}
-
+		 Scanner sc = new Scanner(System.in);
+         System.out.println("Enter the name of the event:");
+         String name=sc.nextLine();
+         System.out.println("Enter the detail of the event:");
+         String detail=sc.nextLine();
+         System.out.println("Enter the owner name of the event:");
+         String owner=sc.nextLine();      
+         System.out.println("Enter the type of the event:\n1.Exhibition\n2.StageEvent");
+         int n=sc.nextInt();
+         switch (n)
+         {
+            case 1:
+                System.out.println("Enter the number of stalls:");
+                int stall=sc.nextInt();
+                Event e=new Exhibition(name,detail,owner,stall);
+                System.out.println("The projected revenue of the event is "+e.projectRevenue());
+                break;
+            case 2:
+                System.out.println("Enter the number of shows:");
+                int show=sc.nextInt();
+                System.out.println("Enter the number of seats per show:");
+                int seat=sc.nextInt();
+                Event s=new Stage(name,detail,owner,show,seat);
+                System.out.println("The projected revenue of the event is "+s.projectRevenue());
+                break;
+         }
+    }
 }
-///in ex3 i have iniatize and in main class i am calling it this we can also do in oops
+	
